@@ -1,0 +1,2 @@
+Changes for Byte Lite – A single-file header-only C++17-like byte type for C++98, C++11 and later
+
