@@ -43,6 +43,12 @@ int main()
 prompt> g++ -std=c++11 -Wall -I../include/nonstd -o 01-basic 01-basic.cpp && 01-basic
 ```
 
+Or to run with Buck:
+
+```
+prompt> buck run example:01-basic
+```
+
 In a nutshell
 -------------
 **byte lite** is a single-file header-only library to provide a [C++17-like distinct byte type](http://en.cppreference.com/w/cpp/types/byte) for use with C++98 and later.
@@ -50,7 +56,6 @@ In a nutshell
 **Features and properties of byte lite** are are ease of installation (single header), freedom of dependencies other than the standard library.
 
 **A limitation of byte lite** is that you need to use function `to_byte(v)` to construct a `byte` from an intergal value `v`, when C++17's relaxation of the enum value construction rule is not available.
-
 
 License
 -------
