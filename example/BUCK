@@ -1,0 +1,12 @@
+cxx_binary(
+  name = '01-basic',
+  srcs = [
+    '01-basic.cpp',
+  ],
+  compiler_flags = [
+    '-std=c++11',
+  ],
+  deps = [
+    '//:byte-lite',
+  ],
+)
