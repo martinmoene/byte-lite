@@ -43,7 +43,7 @@ int main()
 prompt> g++ -std=c++11 -Wall -I../include/nonstd -o 01-basic 01-basic.cpp && 01-basic
 ```
 
-Or to run with Buck:
+Or to run with [Buck](https://buckbuild.com/):
 
 ```
 prompt> buck run example:01-basic
