@@ -2,7 +2,7 @@
 // byte-lite, a C++17-like byte type for C++98 and later.
 // For more information see https://github.com/martinmoene/byte-lite
 //
-// Copyright (c) 2017 Martin Moene
+// Copyright (c) 2017-2018 Martin Moene
 //
 // This code is licensed under the MIT License (MIT).
 //
@@ -19,7 +19,7 @@
 #ifndef NONSTD_BYTE_LITE_HPP
 #define NONSTD_BYTE_LITE_HPP
 
-#define  byte_lite_VERSION "0.0.0"
+#define  byte_lite_VERSION "0.1.0"
 
 // byte-lite configuration:
 
@@ -31,26 +31,42 @@
 #define byte_CPP14_OR_GREATER  ( __cplusplus >= 201402L )
 #define byte_CPP17_OR_GREATER  ( __cplusplus >= 201700L )
 
-#if defined(_MSC_VER) && !defined(__clang__)
-# define byte_COMPILER_MSVC_VERSION   (_MSC_VER / 100 - 5 - (_MSC_VER < 1900))
+#if defined( _MSC_VER ) && !defined( __clang__ )
+# define byte_COMPILER_MSVC_VERSION ( _MSC_VER / 10 - 10 * ( 5 + ( _MSC_VER < 1900 ) ) )
 #else
-# define byte_COMPILER_MSVC_VERSION   0
+# define byte_COMPILER_MSVC_VERSION 0
+#endif
+
+#define byte_COMPILER_VERSION( major, minor, patch ) ( 10 * ( 10 * major + minor ) + patch )
+
+#if defined __clang__
+# define byte_COMPILER_CLANG_VERSION byte_COMPILER_VERSION( __clang_major__, __clang_minor__, __clang_patchlevel__ )
+#else
+# define byte_COMPILER_CLANG_VERSION 0
 #endif
 
 #if defined __GNUC__
-# define byte_COMPILER_GNUC_VERSION  __GNUC__
+# define byte_COMPILER_GNUC_VERSION byte_COMPILER_VERSION( __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__ )
 #else
-# define byte_COMPILER_GNUC_VERSION    0
+# define byte_COMPILER_GNUC_VERSION 0
+#endif
+
+// Compiler non-strict aliasing:
+
+#if defined __clang__ || defined __GNUC__
+# define byte_may_alias  __attribute__((__may_alias__))
+#else
+# define byte_may_alias
 #endif
 
 // Presence of C++11 language features:
 
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 12
+#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 120
 # define byte_HAVE_DEFAULT_FUNCTION_TEMPLATE_ARG  1
 # define byte_HAVE_UNDERLYING_TYPE  1
 #endif
 
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 14
+#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 140
 # define byte_HAVE_CONSTEXPR_11  1
 # define byte_HAVE_ENUM_CLASS  1
 # define byte_HAVE_EXPLICIT_CONVERSION  1
@@ -71,13 +87,13 @@
 
 // Presence of C++ library features:
 
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 9
+#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 90
 # define byte_HAVE_TYPE_TRAITS  1
 #endif
 
 // For the rest, consider VC14 as C++11 for byte-lite:
 
-#if byte_COMPILER_MSVC_VERSION >= 14
+#if byte_COMPILER_MSVC_VERSION >= 140
 # undef  byte_CPP11_OR_GREATER
 # define byte_CPP11_OR_GREATER  1
 #endif
@@ -132,7 +148,7 @@ namespace detail {
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
   enum class byte : unsigned char {};
 #else
-  struct byte { typedef unsigned char type; type v; };
+  struct byte_may_alias byte { typedef unsigned char type; type v; };
 #endif
 
 template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
