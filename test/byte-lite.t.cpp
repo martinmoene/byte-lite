@@ -30,6 +30,12 @@ CASE( "byte-lite version" "[.version]" )
 
 CASE( "compiler version" "[.compiler]" )
 {
+#if byte_COMPILER_CLANG_VERSION
+    byte_PRESENT( byte_COMPILER_CLANG_VERSION );
+#else
+    byte_ABSENT(  byte_COMPILER_GNUC_VERSION );
+#endif
+
 #if byte_COMPILER_GNUC_VERSION
     byte_PRESENT( byte_COMPILER_GNUC_VERSION );
 #else
