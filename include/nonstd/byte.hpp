@@ -154,9 +154,9 @@ namespace detail {
 template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
 inline byte_constexpr byte to_byte( IntegerType v ) byte_noexcept
 {
-#if    byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
-    return { static_cast<typename std::underlying_type<byte>::type>( v ) };
-#elif  byte_HAVE_CONSTEXPR_11
+#if   byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
+    return static_cast<byte>( v );
+#elif byte_HAVE_CONSTEXPR_11
     return { static_cast<typename byte::type>( v ) };
 #else
     byte b = { static_cast<typename byte::type>( v ) }; return b;
