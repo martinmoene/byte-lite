@@ -199,6 +199,7 @@ byte: Allows shift-left operation
 byte: Allows shift-right operation
 byte: Allows shift-left assignment
 byte: Allows shift-right assignment
+byte: Allows strict aliasing
 byte: Provides constexpr non-assignment operations (C++11)
 byte: Provides constexpr assignment operations (C++14)
 ```

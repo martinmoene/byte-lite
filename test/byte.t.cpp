@@ -183,6 +183,16 @@ CASE( "byte: Allows shift-right assignment" )
     EXPECT( ( b >>= 3 ) == to_byte( to_uchar( b_org ) >> 3 ) );
 }
 
+CASE( "byte: Allows strict aliasing" )
+{
+    int x = 5;
+    nonstd::byte * p = (nonstd::byte *) &x;
+
+    *p = nonstd::to_byte( 3 );
+
+    EXPECT( to_integer<int>( *p ) == 3 );
+}
+
 CASE( "byte: Provides constexpr non-assignment operations (C++11)" )
 {
 #if byte_HAVE_CONSTEXPR_11
