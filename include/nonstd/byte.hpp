@@ -146,7 +146,7 @@ namespace detail {
 }
 
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
-  enum class byte : unsigned char {};
+  enum class byte_may_alias byte : unsigned char {};
 #else
   struct byte_may_alias byte { typedef unsigned char type; type v; };
 #endif
