@@ -4,7 +4,7 @@
 //
 // This code is licensed under the MIT License (MIT).
 
-#include "byte-lite.t.h"
+#include "byte-main.t.h"
 
 #define byte_PRESENT( x ) \
     std::cout << #x << ": " << x << "\n"
@@ -109,15 +109,15 @@ int main( int argc, char * argv[] )
 }
 
 #if 0
-g++            -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++98 -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++03 -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++0x -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++11 -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++14 -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
-g++ -std=c++17 -I../include/nonstd -o byte-lite.t.exe byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
+g++            -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++98 -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++03 -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++0x -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++11 -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++14 -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
+g++ -std=c++17 -I../include/nonstd -o byte-main.t.exe byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
 
-cl -EHsc -I../include/nonstd byte-lite.t.cpp byte.t.cpp && byte-lite.t.exe --pass
+cl -EHsc -I../include/nonstd byte-main.t.cpp byte.t.cpp && byte-main.t.exe --pass
 #endif
 
 // end of file
