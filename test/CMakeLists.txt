@@ -33,7 +33,7 @@ if( MSVC )
 
     set( STD_OPT     -std: )
     set( OPTIONS     -W3 -EHsc )
-    set( DEFINITIONS -D_SCL_SECURE_NO_WARNINGS -DNOMINMAX ${SPAN_CONFIG} )
+    set( DEFINITIONS -D_SCL_SECURE_NO_WARNINGS -DNOMINMAX ${BYTE_CONFIG} )
 
     if( NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.00 )
         set( HAS_CPP14_FLAG TRUE )
@@ -51,8 +51,17 @@ elseif( CMAKE_CXX_COMPILER_ID MATCHES GNU OR
     set( HAS_CPP03_FLAG TRUE )
 
     set( STD_OPT     -std= )
-    set( OPTIONS     -Wall -Wno-missing-braces -fno-elide-constructors )
-    set( DEFINITIONS ${SPAN_CONFIG} )
+    set( OPTIONS     
+        -O2
+        -Wall
+        -Wno-missing-braces 
+        -Wconversion 
+        -Wsign-conversion 
+        -Wno-string-conversion 
+        -fno-elide-constructors 
+        -fstrict-aliasing -Wstrict-aliasing=2 
+    )
+    set( DEFINITIONS ${BYTE_CONFIG} )
 
     # GNU: available -std flags depends on version
     if( CMAKE_CXX_COMPILER_ID MATCHES "GNU" )

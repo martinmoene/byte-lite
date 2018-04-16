@@ -185,12 +185,17 @@ CASE( "byte: Allows shift-right assignment" )
 
 CASE( "byte: Allows strict aliasing" )
 {
-    int x = 5;
-    nonstd::byte * p = (nonstd::byte *) &x;
+    struct F {
+        static int f( int & i, nonstd::byte & r )
+        {
+           i = 7;
+           r <<= 1;
+           return i;
+        }
+    };
 
-    *p = nonstd::to_byte( 3 );
-
-    EXPECT( to_integer<int>( *p ) == 3 );
+   int i;
+   EXPECT( 14 == F::f( i, reinterpret_cast<nonstd::byte&>( i ) ) );
 }
 
 CASE( "byte: Provides constexpr non-assignment operations (C++11)" )
