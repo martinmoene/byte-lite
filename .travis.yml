@@ -105,10 +105,8 @@ matrix:
           sources: *apt_sources
 
   allow_failures:
-    - env: COMPILER=clang++-5.0
-      compiler: clang
-    - env: COMPILER=clang++-6.0
-      compiler: clang
+#    - env: COMPILER=clang++-5.0
+#      compiler: clang
 
 script:
   - export CXX=$COMPILER
