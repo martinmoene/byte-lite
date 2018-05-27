@@ -1,6 +1,6 @@
 # byte-lite: A single-file header-only C++17-like byte type for C++98, C++11 and later
 
-[![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)  [![Standard](https://img.shields.io/badge/c%2B%2B-98-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![Standard](https://img.shields.io/badge/c%2B%2B-11-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![Standard](https://img.shields.io/badge/c%2B%2B-14-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![Standard](https://img.shields.io/badge/c%2B%2B-17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/martinmoene/byte-lite.svg?branch=master)](https://travis-ci.org/martinmoene/byte-lite) [![Build status](https://ci.appveyor.com/api/projects/status/gpmw4gt271itoy2n?svg=true)](https://ci.appveyor.com/project/martinmoene/byte-lite) [![Version](https://badge.fury.io/gh/martinmoene%2Fbyte-lite.svg)](https://github.com/martinmoene/byte-lite/releases) [![download](https://img.shields.io/badge/latest%20version%20%20-download-blue.svg)](https://raw.githubusercontent.com/martinmoene/byte-lite/master/include/nonstd/byte.hpp)
+[![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)  [![Standard](https://img.shields.io/badge/c%2B%2B-98/11/14/17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![License](https://img.shields.io/badge/license-BSL-blue.svg)](https://opensource.org/licenses/BSL-1.0) [![Build Status](https://travis-ci.org/martinmoene/byte-lite.svg?branch=master)](https://travis-ci.org/martinmoene/byte-lite) [![Build status](https://ci.appveyor.com/api/projects/status/gpmw4gt271itoy2n?svg=true)](https://ci.appveyor.com/project/martinmoene/byte-lite) [![Version](https://badge.fury.io/gh/martinmoene%2Fbyte-lite.svg)](https://github.com/martinmoene/byte-lite/releases) [![download](https://img.shields.io/badge/latest%20version%20%20-download-blue.svg)](https://raw.githubusercontent.com/martinmoene/byte-lite/master/include/nonstd/byte.hpp)
 
 **Contents**
 - [Example usage](#example-usage)
@@ -59,7 +59,7 @@ In a nutshell
 
 License
 -------
-*byte lite* uses the [MIT](LICENSE) license.
+*byte lite* is distributed under the [Boost Software License](https://github.com/martinmoene/XXXX-lite/blob/master/LICENSE.txt).
 
 
 Dependencies

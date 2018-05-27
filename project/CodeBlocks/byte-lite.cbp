@@ -4,6 +4,16 @@
 	<Project>
 		<Option title="Byte Lite" />
 		<Option compiler="gcc" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[byte-lite: A single-file header-only C++17-like byte type for C++98, C++11 and later
+
+p0298 - https://wg21.link/p0298
+
+Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
+]]>
+			</notes>
+		</Option>
 		<Build>
 			<Target title="default">
 				<Option output="byte-lite" prefix_auto="1" extension_auto="1" />
