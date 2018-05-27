@@ -16,11 +16,22 @@
 
 // byte-lite configuration:
 
-// Compiler detection (C++17 is speculative):
+// C++ language version detection (C++20 is speculative):
+// Note: VC14.0/1900 (VS2015) lacks too much from C++14.
 
-#define byte_CPP11_OR_GREATER  ( __cplusplus >= 201103L )
-#define byte_CPP14_OR_GREATER  ( __cplusplus >= 201402L )
-#define byte_CPP17_OR_GREATER  ( __cplusplus >= 201700L )
+#ifndef   byte_CPLUSPLUS
+# ifdef  _MSVC_LANG
+#  define byte_CPLUSPLUS  (_MSC_VER == 1900 ? 201103L : _MSVC_LANG )
+# else
+#  define byte_CPLUSPLUS  __cplusplus
+# endif
+#endif
+
+#define byte_CPP98_OR_GREATER  ( byte_CPLUSPLUS >= 199711L )
+#define byte_CPP11_OR_GREATER  ( byte_CPLUSPLUS >= 201103L )
+#define byte_CPP14_OR_GREATER  ( byte_CPLUSPLUS >= 201402L )
+#define byte_CPP17_OR_GREATER  ( byte_CPLUSPLUS >= 201703L )
+#define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202000L )
 
 #if defined( _MSC_VER ) && !defined( __clang__ )
 # define byte_COMPILER_MSVC_VERSION ( _MSC_VER / 10 - 10 * ( 5 + ( _MSC_VER < 1900 ) ) )
