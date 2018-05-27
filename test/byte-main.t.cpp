@@ -19,14 +19,17 @@ lest::tests & specification()
     return tests;
 }
 
+CASE( "byte-lite version" "[.version]" )
+{
+    byte_PRESENT( byte_lite_MAJOR );
+    byte_PRESENT( byte_lite_MINOR );
+    byte_PRESENT( byte_lite_PATCH );
+    byte_PRESENT( byte_lite_VERSION );
+}
+
 CASE( "__cplusplus" "[.stdc++]" )
 {
     byte_PRESENT( __cplusplus );
-}
-
-CASE( "byte-lite version" "[.version]" )
-{
-    byte_PRESENT( byte_lite_VERSION );
 }
 
 CASE( "compiler version" "[.compiler]" )

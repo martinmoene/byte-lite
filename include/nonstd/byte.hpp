@@ -12,7 +12,13 @@
 #ifndef NONSTD_BYTE_LITE_HPP
 #define NONSTD_BYTE_LITE_HPP
 
-#define  byte_lite_VERSION "0.1.0"
+#define byte_lite_MAJOR  0
+#define byte_lite_MINOR  1
+#define byte_lite_PATCH  0
+#define byte_lite_VERSION  byte_STRINGIFY(byte_lite_MAJOR) "." byte_STRINGIFY(byte_lite_MINOR) "." byte_STRINGIFY(byte_lite_PATCH)
+
+#define byte_STRINGIFY(  x )  byte_STRINGIFY_( x )
+#define byte_STRINGIFY_( x )  #x
 
 // byte-lite configuration:
 
