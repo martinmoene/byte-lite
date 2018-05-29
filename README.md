@@ -82,28 +82,28 @@ Synopsis
 
 ### Types in namespace nonstd
 
-| Purpose            | Type            | Std     | Notes  |
-|--------------------|:----------------|:-------:|:-------|
-| Distinct byte type | enum class byte | >=C++17 | &nbsp; |
-| &nbsp;             | struct byte     | < C++17 | &nbsp; |
+| Purpose            | Type                | Std     | Notes  |
+|--------------------|:--------------------|:-------:|:-------|
+| Distinct byte type | enum class **byte** | >=C++17 | &nbsp; |
+| &nbsp;             | struct **byte**     | < C++17 | &nbsp; |
 
 ### Algorithms for *byte lite*
 
 | Kind              | Std     | Function | Result |
 |-------------------|:-------:|----------|--------|
-| Shift-assign      |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator<<=( byte & b, IntegerType shift ) noexcept | left-shifted b |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator>>=( byte & b, IntegerType shift ) noexcept | right-shifted b |
-| Shift             |  &nbsp; | template< class IntegerType ><br>constexpr byte operator<<( byte b, IntegerType shift ) noexcept | left-shifted byte |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte operator>>( byte b, IntegerType shift ) noexcept | right-shifted byte |
-| Bitwise-op-assign |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&#166;=( byte & l, byte r ) noexcept | bitwise-or-ed b |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&amp;=( byte & l, byte r ) noexcept | bitwise-xor-ed b |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&Hat;=( byte & l, byte r ) noexcept | bitwise-and-ed b |
-| Bitwise-op        |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&#166;( byte l, byte r ) noexcept | bitwise-or-ed byte |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&amp;( byte l, byte r ) noexcept | bitwise-xor-ed byte |
-| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & operator&Hat;( byte l, byte r ) noexcept | bitwise-and-ed byte|
-| Conversion        | non-std | template< class IntegerType ><br>constexpr byte to_byte( IntegerType v ) | byte with value v|
-| &nbsp;            | >=C++11 | template< class IntegerType = *underlying-type* ><br>constexpr IntegerType to_integer( byte b ) | byte's value, note&nbsp;2,&nbsp;3|
-| &nbsp;            | < C++11 | template< class IntegerType ><br>constexpr IntegerType to_integer( byte b ) | byte's value, note&nbsp;3 |
+| Shift-assign      |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator<<=**( byte & b, IntegerType shift ) noexcept | left-shifted b |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator>>=**( byte & b, IntegerType shift ) noexcept | right-shifted b |
+| Shift             |  &nbsp; | template< class IntegerType ><br>constexpr byte **operator<<**( byte b, IntegerType shift ) noexcept | left-shifted byte |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte **operator>>**( byte b, IntegerType shift ) noexcept | right-shifted byte |
+| Bitwise-op-assign |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&#166;=**( byte & l, byte r ) noexcept | bitwise-or-ed b |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&amp;=**( byte & l, byte r ) noexcept | bitwise-xor-ed b |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&Hat;=**( byte & l, byte r ) noexcept | bitwise-and-ed b |
+| Bitwise-op        |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&#166;**( byte l, byte r ) noexcept | bitwise-or-ed byte |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&amp;**( byte l, byte r ) noexcept | bitwise-xor-ed byte |
+| &nbsp;            |  &nbsp; | template< class IntegerType ><br>constexpr byte & **operator&Hat;**( byte l, byte r ) noexcept | bitwise-and-ed byte|
+| Conversion        | non-std | template< class IntegerType ><br>constexpr byte **to_byte**( IntegerType v ) | byte with value v|
+| &nbsp;            | >=C++11 | template< class IntegerType = *underlying-type* ><br>constexpr IntegerType **to_integer**( byte b ) | byte's value, note&nbsp;2,&nbsp;3|
+| &nbsp;            | < C++11 | template< class IntegerType ><br>constexpr IntegerType **to_integer**( byte b ) | byte's value, note&nbsp;3 |
 
 **Note 1**: the algrithms use an extra level of casting to prevent undefined behaviour, as mentioned by Thomas Köppe on mailing list isocpp-lib, subject "std::byte operations are hard to use correctly", on 16 March 2017.
 
