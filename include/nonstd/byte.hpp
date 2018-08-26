@@ -15,6 +15,7 @@
 #define byte_lite_MAJOR  0
 #define byte_lite_MINOR  1
 #define byte_lite_PATCH  0
+
 #define byte_lite_VERSION  byte_STRINGIFY(byte_lite_MAJOR) "." byte_STRINGIFY(byte_lite_MINOR) "." byte_STRINGIFY(byte_lite_PATCH)
 
 #define byte_STRINGIFY(  x )  byte_STRINGIFY_( x )
