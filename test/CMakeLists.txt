@@ -7,6 +7,10 @@
 
 cmake_minimum_required( VERSION 3.5 )
 
+# byte-lite version, updated by script/update-version.py:
+
+set( byte_lite_version "0.1.0" )
+
 project( test LANGUAGES CXX )
 
 set( MAIN_BASE byte-main )
