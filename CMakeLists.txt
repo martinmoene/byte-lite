@@ -7,6 +7,10 @@
 
 cmake_minimum_required( VERSION 3.5 )
 
+# byte-lite version, updated by script/update-version.py:
+
+set( byte_lite_version "0.1.0" )
+
 # At default, enable building and performing of tests and building of examples:
 
 option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" ON )
