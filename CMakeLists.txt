@@ -16,16 +16,19 @@ set( byte_lite_version "0.1.0" )
 option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" ON )
 option( BYTE_LITE_OPT_BUILD_EXAMPLES "Build byte-lite examples" OFF )
 
-project( span_lite LANGUAGES CXX )
+include( GNUInstallDirs )
 
-set( package_name "span-lite" )
+project( byte_lite LANGUAGES CXX )
+
+set( package_name "byte-lite" )
+set( include_source_dir "${PROJECT_SOURCE_DIR}/include" )
 
 # Interface library:
 
-add_library(                
+add_library(
     ${package_name} INTERFACE )
-    
-target_include_directories( 
+
+target_include_directories(
     ${package_name} INTERFACE "$<BUILD_INTERFACE:${include_source_dir}>" )
 
 enable_testing()
@@ -37,5 +40,7 @@ endif()
 if ( BYTE_LITE_OPT_BUILD_EXAMPLES )
     add_subdirectory( example )
 endif()
+
+install( DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} )
 
 # end of file
