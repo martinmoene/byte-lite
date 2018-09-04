@@ -40,7 +40,7 @@
 #define byte_CPP17_OR_GREATER  ( byte_CPLUSPLUS >= 201703L )
 #define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202000L )
 
-#if defined( _MSC_VER ) && !defined( __clang__ )
+#if defined(_MSC_VER) && !defined(__clang__)
 # define byte_COMPILER_MSVC_VERSION ( _MSC_VER / 10 - 10 * ( 5 + ( _MSC_VER < 1900 ) ) )
 #else
 # define byte_COMPILER_MSVC_VERSION 0
@@ -48,13 +48,13 @@
 
 #define byte_COMPILER_VERSION( major, minor, patch ) ( 10 * ( 10 * major + minor ) + patch )
 
-#if defined __clang__
+#if defined(__clang__)
 # define byte_COMPILER_CLANG_VERSION byte_COMPILER_VERSION( __clang_major__, __clang_minor__, __clang_patchlevel__ )
 #else
 # define byte_COMPILER_CLANG_VERSION 0
 #endif
 
-#if defined __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 # define byte_COMPILER_GNUC_VERSION byte_COMPILER_VERSION( __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__ )
 #else
 # define byte_COMPILER_GNUC_VERSION 0
@@ -62,7 +62,7 @@
 
 // Compiler non-strict aliasing:
 
-#if defined __clang__ || defined __GNUC__
+#if defined(__clang__) || defined(__GNUC__)
 # define byte_may_alias  __attribute__((__may_alias__))
 #else
 # define byte_may_alias
@@ -187,6 +187,7 @@ inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
 {
     return b.v;
 }
+
 #endif
 
 inline byte_constexpr unsigned char to_uchar( byte b ) byte_noexcept
@@ -230,6 +231,7 @@ inline byte_constexpr bool operator>=( byte l, byte r ) byte_noexcept
 {
     return !( l < r );
 }
+
 #endif
 
 template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
