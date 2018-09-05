@@ -124,12 +124,12 @@ The table below mentions the compiler versions *byte lite* is reported to work w
 
 OS        | Compiler   | Versions |
 ---------:|:-----------|:---------|
-Windows   | Clang/LLVM | ? |
-&nbsp;    | GCC        | 5.2.0 |
-&nbsp;    | Visual C++<br>(Visual Studio)| 6 (6), 8 (2005), 10 (2010), 11 (2012),<br>12 (2013), 14 (2015), 14 (2017) |
-GNU/Linux | Clang/LLVM | 3.5.0 |
-&nbsp;    | GCC        | 4.8.4 |
-OS X      | ?          | ?   |
+Windows   | Clang/LLVM | ?        |
+&nbsp;    | GCC        | 5.2.0    |
+&nbsp;    | Visual C++<br>(Visual Studio)| 6 (6), 8 (2005), 9 (2008), 10 (2010),<br>11 (2012), 12 (2013), 14 (2015), 15 (2017) |
+GNU/Linux | Clang/LLVM | 3.5 - 6.0  |
+&nbsp;    | GCC        | 4.8 - 8 |
+OS X      | Clang/LLVM | Xcode 6, Xcode 7, Xcode 8, Xcode 9 |
 
 
 Building the tests
