@@ -153,7 +153,7 @@ else()
         if( CMAKE_CXX_COMPILER_ID MATCHES "AppleClang" )
             set( std17 c++1z )
         endif()
-        make_target( ${MAIN_BASE}-cpp17.t 17 )
+        make_target( ${MAIN_BASE}-cpp17.t ${std17} )
         enable_msvs_guideline_checker( ${MAIN_BASE}-cpp17.t )
     endif()
 
