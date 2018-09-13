@@ -31,6 +31,13 @@ add_library(
 target_include_directories(
     ${package_name} INTERFACE "$<BUILD_INTERFACE:${include_source_dir}>" )
 
+# Installation:
+
+install( 
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} )
+
+# If requested, build and perform tests, build examples:
+
 enable_testing()
 
 if ( BYTE_LITE_OPT_BUILD_TESTS )
@@ -40,7 +47,5 @@ endif()
 if ( BYTE_LITE_OPT_BUILD_EXAMPLES )
     add_subdirectory( example )
 endif()
-
-install( DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} )
 
 # end of file
