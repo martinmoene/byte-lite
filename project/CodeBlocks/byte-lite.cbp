@@ -26,7 +26,7 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../.travis.yml" />
 		<Unit filename="../../CHANGES.txt" />
 		<Unit filename="../../CMakeLists.txt" />
-		<Unit filename="../../LICENSE" />
+		<Unit filename="../../LICENSE.txt" />
 		<Unit filename="../../README.md" />
 		<Unit filename="../../appveyor.yml" />
 		<Unit filename="../../example/01-basic.cpp" />
