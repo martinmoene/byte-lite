@@ -2,7 +2,7 @@
 #
 # https://github.com/martinmoene/byte-lite
 #
-# Distributed under the Boost Software License, Version 1.0. 
+# Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 cmake_minimum_required( VERSION 3.5 )
@@ -13,7 +13,7 @@ set( byte_lite_version "0.1.0" )
 
 # At default, enable building and performing of tests and building of examples:
 
-option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" ON )
+option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" OFF )
 option( BYTE_LITE_OPT_BUILD_EXAMPLES "Build byte-lite examples" OFF )
 
 include( GNUInstallDirs )
@@ -33,7 +33,7 @@ target_include_directories(
 
 # Installation:
 
-install( 
+install(
     DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} )
 
 # If requested, build and perform tests, build examples:
