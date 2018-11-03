@@ -27,6 +27,17 @@ CASE( "byte-lite version" "[.version]" )
     byte_PRESENT( byte_lite_VERSION );
 }
 
+CASE( "byte configuration" "[.byte][.config]" )
+{
+    byte_PRESENT( byte_HAVE_STD_BYTE );
+    byte_PRESENT( byte_USES_STD_BYTE );
+    byte_PRESENT( byte_CONFIG_SELECT_BYTE );
+    byte_PRESENT( byte_BYTE_DEFAULT );
+    byte_PRESENT( byte_BYTE_NONSTD );
+    byte_PRESENT( byte_BYTE_STD );
+    byte_PRESENT( byte_CPLUSPLUS );
+}
+
 CASE( "__cplusplus" "[.stdc++]" )
 {
     byte_PRESENT( __cplusplus );

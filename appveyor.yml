@@ -46,7 +46,7 @@ matrix:
 
 before_build:
     - mkdir build && cd build
-    - cmake -A %platform% -G "%generator%" -DBYTE_LITE_OPT_BUILD_TESTS=ON -DBYTE_LITE_OPT_BUILD_EXAMPLES=OFF ..
+    - cmake -A %platform% -G "%generator%" -Dbyte_CONFIG_SELECT_BYTE=byte_BYTE_NONSTD -DBYTE_LITE_OPT_BUILD_TESTS=ON -DBYTE_LITE_OPT_BUILD_EXAMPLES=OFF ..
 
 build_script:
     - cmake --build . --config %configuration%

@@ -117,6 +117,12 @@ Synopsis
 \-D<b>byte\_CPLUSPLUS</b>=199711L
 Define this macro to override the auto-detection of the supported C++ standard, if your compiler does not set the `__cpluplus` macro correctly.
 
+### Select `std::byte` or `nonstd::byte`
+At default, *byte lite* uses `std::byte` if it is available and lets you use it via namespace `nonstd`. You can however override this default and explicitly request to use `std::byte` or byte lite's `nonstd::byte` as `nonstd::byte` via the following macros.
+
+-D<b>byte\_CONFIG\_SELECT\_BYTE</b>=byte_BYTE_DEFAULT  
+Define this to `byte_BYTE_STD` to select `std::byte` as `nonstd::byte`. Define this to `byte_BYTE_NONSTD` to select `nonstd::byte` as `nonstd::byte`. Default is undefined, which has the same effect as defining to `byte_BYTE_DEFAULT`.
+
 
 Reported to work with
 ---------------------

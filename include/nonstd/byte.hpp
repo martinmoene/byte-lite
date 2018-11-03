@@ -23,6 +23,14 @@
 
 // byte-lite configuration:
 
+#define byte_BYTE_DEFAULT  0
+#define byte_BYTE_NONSTD   1
+#define byte_BYTE_STD      2
+
+#if !defined( byte_CONFIG_SELECT_BYTE )
+# define byte_CONFIG_SELECT_BYTE  ( byte_HAVE_STD_BYTE ? byte_BYTE_STD : byte_BYTE_NONSTD )
+#endif
+
 // C++ language version detection (C++20 is speculative):
 // Note: VC14.0/1900 (VS2015) lacks too much from C++14.
 
@@ -39,6 +47,51 @@
 #define byte_CPP14_OR_GREATER  ( byte_CPLUSPLUS >= 201402L )
 #define byte_CPP17_OR_GREATER  ( byte_CPLUSPLUS >= 201703L )
 #define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202000L )
+
+// use C++17 std::byte if available and requested:
+
+#if byte_CPP17_OR_GREATER
+# define byte_HAVE_STD_BYTE  1
+#else
+# define byte_HAVE_STD_BYTE  0
+#endif
+
+#define byte_USES_STD_BYTE  ( (byte_CONFIG_SELECT_BYTE == byte_BYTE_STD) || ((byte_CONFIG_SELECT_BYTE == byte_BYTE_DEFAULT) && byte_HAVE_STD_BYTE) )
+
+//
+// Using std::byte:
+//
+
+#if byte_USES_STD_BYTE
+
+#include <cstddef>
+#include <type_traits>
+
+namespace nonstd {
+
+using std::byte;
+using std::to_integer;
+
+// Provide compatibility with nonstd::byte:
+
+template
+< 
+    class IntegerType
+    , class = typename std::enable_if<std::is_integral<IntegerType>::value>::type
+>
+inline constexpr byte to_byte( IntegerType v ) noexcept
+{
+    return static_cast<byte>( v );
+}
+
+inline constexpr unsigned char to_uchar( byte b ) noexcept
+{
+    return to_integer<unsigned char>( b );
+}
+
+} // namespace nonstd
+
+#else // byte_USES_STD_BYTE
 
 #if defined(_MSC_VER) && !defined(__clang__)
 # define byte_COMPILER_MSVC_VERSION ( _MSC_VER / 10 - 10 * ( 5 + ( _MSC_VER < 1900 ) ) )
@@ -314,6 +367,8 @@ inline byte_constexpr byte operator~( byte b ) byte_noexcept
 }
 
 } // namespace nonstd
+
+#endif // byte_USES_STD_BYTE
 
 #endif // NONSTD_BYTE_LITE_HPP
 

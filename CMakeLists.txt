@@ -16,6 +16,9 @@ set( byte_lite_version "0.1.0" )
 option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" OFF )
 option( BYTE_LITE_OPT_BUILD_EXAMPLES "Build byte-lite examples" OFF )
 
+option( BYTE_LITE_OPT_SELECT_STD      "Select std::byte"    OFF )
+option( BYTE_LITE_OPT_SELECT_NONSTD   "Select nonstd::byte" OFF )
+
 include( GNUInstallDirs )
 
 project( byte_lite LANGUAGES CXX )

@@ -20,8 +20,8 @@ set( HDRPATH ${HDRDIR}/${HDRNAME} )
 
 # Configure byte-lite for testing:
 
+set( DEFCMN  "" )
 set( OPTIONS "" )
-set( BYTE_CONFIG "" )
 
 set( HAS_STD_FLAGS  FALSE )
 set( HAS_CPP98_FLAG FALSE )
@@ -37,7 +37,7 @@ if( MSVC )
     set( HAS_STD_FLAGS TRUE )
 
     set( OPTIONS     -W3 -EHsc )
-    set( DEFINITIONS -D_SCL_SECURE_NO_WARNINGS ${BYTE_CONFIG} )
+    set( DEFINITIONS -D_SCL_SECURE_NO_WARNINGS ${DEFCMN} )
 
     if( NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.00 )
         set( HAS_CPP14_FLAG TRUE )
@@ -63,7 +63,7 @@ elseif( CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang" )
         -fno-elide-constructors
         -fstrict-aliasing -Wstrict-aliasing=2
     )
-    set( DEFINITIONS ${BYTE_CONFIG} )
+    set( DEFINITIONS ${DEFCMN} )
 
     # GNU: available -std flags depends on version
     if( CMAKE_CXX_COMPILER_ID MATCHES "GNU" )
