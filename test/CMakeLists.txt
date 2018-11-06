@@ -184,6 +184,24 @@ else()
     endif()
 endif()
 
+# with C++17, honour explicit request for std::byte or nonstd::byte:
+
+if( HAS_CPP17_FLAG )
+    set( WHICH variant_VARIANT_DEFAULT )
+
+    if( BYTE_LITE_OPT_SELECT_STD )
+        set( WHICH byte_BYTE_STD )
+    elseif( BYTE_LITE_OPT_SELECT_NONSTD )
+        set( WHICH byte_BYTE_NONSTD )
+    endif()
+
+    target_compile_definitions( ${MAIN_BASE}-cpp17.t PRIVATE byte_CONFIG_SELECT_BYTE=${WHICH} )
+
+    if( HAS_CPPLATEST_FLAG )
+        target_compile_definitions( ${MAIN_BASE}-cpplatest.t PRIVATE byte_CONFIG_SELECT_BYTE=${WHICH} )
+    endif()
+endif()
+
 # configure unit tests via CTest:
 
 enable_testing()
