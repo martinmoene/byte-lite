@@ -35,7 +35,7 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../script/update-version.py" />
 		<Unit filename="../../test/CMakeLists.txt" />
 		<Unit filename="../../test/byte-main.t.cpp" />
-		<Unit filename="../../test/byte-main.t.h" />
+		<Unit filename="../../test/byte-main.t.hpp" />
 		<Unit filename="../../test/byte.t.cpp" />
 		<Unit filename="../../test/lest_cpp03.hpp" />
 		<Unit filename="../../test/t.bat" />
