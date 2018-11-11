@@ -35,7 +35,7 @@
 // Note: VC14.0/1900 (VS2015) lacks too much from C++14.
 
 #ifndef   byte_CPLUSPLUS
-# ifdef  _MSVC_LANG
+# if defined(_MSVC_LANG ) && !defined(__clang__)
 #  define byte_CPLUSPLUS  (_MSC_VER == 1900 ? 201103L : _MSVC_LANG )
 # else
 #  define byte_CPLUSPLUS  __cplusplus
@@ -93,10 +93,12 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 
 #else // byte_USES_STD_BYTE
 
-#if defined(_MSC_VER) && !defined(__clang__)
-# define byte_COMPILER_MSVC_VERSION ( _MSC_VER / 10 - 10 * ( 5 + ( _MSC_VER < 1900 ) ) )
+#if defined(_MSC_VER ) && !defined(__clang__)
+# define byte_COMPILER_MSVC_VER      (_MSC_VER )
+# define byte_COMPILER_MSVC_VERSION  (_MSC_VER / 10 - 10 * ( 5 + (_MSC_VER < 1900 ) ) )
 #else
-# define byte_COMPILER_MSVC_VERSION 0
+# define byte_COMPILER_MSVC_VER      0
+# define byte_COMPILER_MSVC_VERSION  0
 #endif
 
 #define byte_COMPILER_VERSION( major, minor, patch ) ( 10 * ( 10 * major + minor ) + patch )
