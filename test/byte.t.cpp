@@ -15,6 +15,8 @@
 // We have a chicken & egg problem here:
 //   verifying operations via to_integer() that has yet to verified itself...
 
+using namespace nonstd;
+
 CASE( "byte: Allows to construct from integral via static cast (C++17)" )
 {
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE

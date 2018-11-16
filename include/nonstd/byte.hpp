@@ -44,6 +44,7 @@
 
 #define byte_CPP98_OR_GREATER  ( byte_CPLUSPLUS >= 199711L )
 #define byte_CPP11_OR_GREATER  ( byte_CPLUSPLUS >= 201103L )
+#define byte_CPP11_OR_GREATER_ ( byte_CPLUSPLUS >= 201103L )
 #define byte_CPP14_OR_GREATER  ( byte_CPLUSPLUS >= 201402L )
 #define byte_CPP17_OR_GREATER  ( byte_CPLUSPLUS >= 201703L )
 #define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202000L )
@@ -93,6 +94,22 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 
 #else // byte_USES_STD_BYTE
 
+// half-open range [lo..hi):
+#define byte_BETWEEN( v, lo, hi ) ( (lo) <= (v) && (v) < (hi) )
+
+// Compiler versions:
+//
+// MSVC++ 6.0  _MSC_VER == 1200 (Visual Studio 6.0)
+// MSVC++ 7.0  _MSC_VER == 1300 (Visual Studio .NET 2002)
+// MSVC++ 7.1  _MSC_VER == 1310 (Visual Studio .NET 2003)
+// MSVC++ 8.0  _MSC_VER == 1400 (Visual Studio 2005)
+// MSVC++ 9.0  _MSC_VER == 1500 (Visual Studio 2008)
+// MSVC++ 10.0 _MSC_VER == 1600 (Visual Studio 2010)
+// MSVC++ 11.0 _MSC_VER == 1700 (Visual Studio 2012)
+// MSVC++ 12.0 _MSC_VER == 1800 (Visual Studio 2013)
+// MSVC++ 14.0 _MSC_VER == 1900 (Visual Studio 2015)
+// MSVC++ 14.1 _MSC_VER >= 1910 (Visual Studio 2017)
+
 #if defined(_MSC_VER ) && !defined(__clang__)
 # define byte_COMPILER_MSVC_VER      (_MSC_VER )
 # define byte_COMPILER_MSVC_VERSION  (_MSC_VER / 10 - 10 * ( 5 + (_MSC_VER < 1900 ) ) )
@@ -115,6 +132,11 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 # define byte_COMPILER_GNUC_VERSION 0
 #endif
 
+#if byte_BETWEEN( byte_COMPILER_MSVC_VER, 1300, 1900 )
+# pragma warning( push )
+# pragma warning( disable: 4345 )   // initialization behavior changed
+#endif
+
 // Compiler non-strict aliasing:
 
 #if defined(__clang__) || defined(__GNUC__)
@@ -123,44 +145,48 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 # define byte_may_alias
 #endif
 
-// Presence of C++11 language features:
+// Presence of language and library features:
 
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 120
-# define byte_HAVE_DEFAULT_FUNCTION_TEMPLATE_ARG  1
-# define byte_HAVE_UNDERLYING_TYPE  1
+#ifdef _HAS_CPP0X
+# define byte_HAS_CPP0X  _HAS_CPP0X
+#else
+# define byte_HAS_CPP0X  0
 #endif
 
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 140
-# define byte_HAVE_CONSTEXPR_11  1
-# define byte_HAVE_ENUM_CLASS  1
-# define byte_HAVE_EXPLICIT_CONVERSION  1
-# define byte_HAVE_NOEXCEPT  1
-#endif
+// Unless defined otherwise below, consider VC14 as C++11 for variant-lite:
 
-// Presence of C++14 language features:
-
-#if byte_CPP14_OR_GREATER
-# define byte_HAVE_CONSTEXPR_14  1
-#endif
-
-// Presence of C++17 language features:
-
-#if byte_CPP17_OR_GREATER
-# define byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE  1
-#endif
-
-// Presence of C++ library features:
-
-#if byte_CPP11_OR_GREATER || byte_COMPILER_MSVC_VERSION >= 90
-# define byte_HAVE_TYPE_TRAITS  1
-#endif
-
-// For the rest, consider VC14 as C++11 for byte-lite:
-
-#if byte_COMPILER_MSVC_VERSION >= 140
+#if byte_COMPILER_MSVC_VER >= 1900
 # undef  byte_CPP11_OR_GREATER
 # define byte_CPP11_OR_GREATER  1
 #endif
+
+#define byte_CPP11_90   (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1500)
+#define byte_CPP11_100  (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1600)
+#define byte_CPP11_110  (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1700)
+#define byte_CPP11_120  (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1800)
+#define byte_CPP11_140  (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1900)
+#define byte_CPP11_141  (byte_CPP11_OR_GREATER_ || byte_COMPILER_MSVC_VER >= 1910)
+
+#define byte_CPP14_000  (byte_CPP14_OR_GREATER)
+#define byte_CPP17_000  (byte_CPP17_OR_GREATER)
+
+// Presence of C++11 language features:
+
+#define byte_HAVE_CONSTEXPR_11          byte_CPP11_140
+#define byte_HAVE_DEFAULT_FUNCTION_TEMPLATE_ARG  byte_CPP11_120
+#define byte_HAVE_NOEXCEPT              byte_CPP11_140
+
+// Presence of C++14 language features:
+
+#define byte_HAVE_CONSTEXPR_14          byte_CPP14_000
+
+// Presence of C++17 language features:
+
+#define byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE  byte_CPP17_000
+
+// Presence of C++ library features:
+
+#define byte_HAVE_TYPE_TRAITS           byte_CPP11_90
 
 // C++ feature usage:
 
