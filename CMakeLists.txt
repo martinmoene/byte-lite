@@ -7,21 +7,29 @@
 
 cmake_minimum_required( VERSION 3.5 )
 
-# byte-lite version, updated by script/update-version.py:
+# byte-lite project and version, updated by script/update-version.py:
+
+project( byte_lite LANGUAGES CXX )
 
 set( byte_lite_version "0.1.0" )
 
+# Toplevel or subproject:
+
+if ( CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR )
+    set( byte_IS_TOPLEVEL_PROJECT TRUE )
+else()
+    set( byte_IS_TOPLEVEL_PROJECT FALSE )
+endif()
+
 # At default, enable building and performing of tests and building of examples:
 
-option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" OFF )
+option( BYTE_LITE_OPT_BUILD_TESTS    "Build and perform byte-lite tests" ${byte_IS_TOPLEVEL_PROJECT} )
 option( BYTE_LITE_OPT_BUILD_EXAMPLES "Build byte-lite examples" OFF )
 
 option( BYTE_LITE_OPT_SELECT_STD      "Select std::byte"    OFF )
 option( BYTE_LITE_OPT_SELECT_NONSTD   "Select nonstd::byte" OFF )
 
 include( GNUInstallDirs )
-
-project( byte_lite LANGUAGES CXX )
 
 set( package_name "byte-lite" )
 set( include_source_dir "${PROJECT_SOURCE_DIR}/include" )
