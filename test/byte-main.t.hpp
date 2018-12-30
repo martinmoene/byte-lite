@@ -2,7 +2,7 @@
 //
 // https://github.com/martinmoene/byte-lite
 //
-// Distributed under the Boost Software License, Version 1.0. 
+// Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #pragma once
@@ -10,7 +10,7 @@
 #ifndef TEST_byte_LITE_H_INCLUDED
 #define TEST_byte_LITE_H_INCLUDED
 
-#include "byte.hpp"
+#include "nonstd/byte.hpp"
 
 // Compiler warning suppression for usage of lest:
 
