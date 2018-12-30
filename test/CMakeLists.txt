@@ -187,7 +187,7 @@ endif()
 # with C++17, honour explicit request for std::byte or nonstd::byte:
 
 if( HAS_CPP17_FLAG )
-    set( WHICH variant_VARIANT_DEFAULT )
+    set( WHICH byte_BYTE_DEFAULT )
 
     if( BYTE_LITE_OPT_SELECT_STD )
         set( WHICH byte_BYTE_STD )
