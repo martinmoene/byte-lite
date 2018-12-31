@@ -16,6 +16,13 @@ project(
 #   HOMEPAGE_URL "https://github.com/martinmoene/byte-lite"
     LANGUAGES CXX )
 
+# Package information:
+
+set( package_name    "byte-lite" )
+set( package_version "${${PROJECT_NAME}_VERSION}" )
+
+message( STATUS "Project '${PROJECT_NAME}', package '${package_name}' version: '${package_version}'")
+
 # Toplevel or subproject:
 
 if ( CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME )
@@ -51,13 +58,6 @@ endif()
 
 include( GNUInstallDirs )
 include( CMakePackageConfigHelpers )
-
-# Package information:
-
-set( package_name    "byte-lite" )
-set( package_version "${${PROJECT_NAME}_VERSION}" )
-
-message( STATUS "Project '${PROJECT_NAME}', package '${package_name}' version: '${package_version}'")
 
 # Interface library:
 
