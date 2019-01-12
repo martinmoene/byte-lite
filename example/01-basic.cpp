@@ -13,5 +13,5 @@ int main()
     byte r2 = b1 ^ b2; assert( 0xff == to_integer<unsigned int>( r2 ) );
 }
 
-// cl -nologo -EHsc -I../include/nonstd 01-basic.cpp && 01-basic
-// g++ -std=c++11 -Wall -I../include/nonstd -o 01-basic 01-basic.cpp && 01-basic
+// cl -nologo -EHsc -I../include 01-basic.cpp && 01-basic
+// g++ -std=c++11 -Wall -I../include -o 01-basic 01-basic.cpp && 01-basic

@@ -2,9 +2,9 @@
 // byte-lite, a C++17-like byte type for C++98 and later.
 // For more information see https://github.com/martinmoene/gsl-lite
 //
-// Copyright 2017-2018 Martin Moene
+// Copyright 2017-2019 Martin Moene
 //
-// Distributed under the Boost Software License, Version 1.0. 
+// Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include "byte-main.t.hpp"
