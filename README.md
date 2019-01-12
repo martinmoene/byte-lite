@@ -117,6 +117,10 @@ Synopsis
 \-D<b>byte\_CPLUSPLUS</b>=199711L
 Define this macro to override the auto-detection of the supported C++ standard, if your compiler does not set the `__cpluplus` macro correctly.
 
+### Disable exceptions
+-D<b>byte_CONFIG_NO_EXCEPTIONS</b>=0
+Define this to 1 if you want to compile without exceptions. If not defined, the header tries and detect if exceptions have been disabled (e.g. via `-fno-exceptions`). Default is undefined.
+
 ### Select `std::byte` or `nonstd::byte`
 At default, *byte lite* uses `std::byte` if it is available and lets you use it via namespace `nonstd`. You can however override this default and explicitly request to use `std::byte` or byte lite's `nonstd::byte` as `nonstd::byte` via the following macros.
 

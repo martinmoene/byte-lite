@@ -24,6 +24,7 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../.gitattributes" />
 		<Unit filename="../../.gitignore" />
 		<Unit filename="../../.travis.yml" />
+		<Unit filename="../../BUCK" />
 		<Unit filename="../../CHANGES.txt" />
 		<Unit filename="../../CMakeLists.txt" />
 		<Unit filename="../../LICENSE.txt" />
@@ -32,8 +33,11 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../cmake/byte-lite-config.cmake.in" />
 		<Unit filename="../../conanfile.py" />
 		<Unit filename="../../example/01-basic.cpp" />
+		<Unit filename="../../example/02-no-exceptions.cpp" />
+		<Unit filename="../../example/BUCK" />
 		<Unit filename="../../include/nonstd/byte.hpp" />
 		<Unit filename="../../script/update-version.py" />
+		<Unit filename="../../test/BUCK" />
 		<Unit filename="../../test/CMakeLists.txt" />
 		<Unit filename="../../test/byte-main.t.cpp" />
 		<Unit filename="../../test/byte-main.t.hpp" />
