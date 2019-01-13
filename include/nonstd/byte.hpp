@@ -2,9 +2,9 @@
 // byte-lite, a C++17-like byte type for C++98 and later.
 // For more information see https://github.com/martinmoene/byte-lite
 //
-// Copyright 2017-2019 Martin Moene
+// Copyright 2017-2018 Martin Moene
 //
-// Distributed under the Boost Software License, Version 1.0.
+// Distributed under the Boost Software License, Version 1.0. 
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #pragma once
@@ -29,16 +29,6 @@
 
 #if !defined( byte_CONFIG_SELECT_BYTE )
 # define byte_CONFIG_SELECT_BYTE  ( byte_HAVE_STD_BYTE ? byte_BYTE_STD : byte_BYTE_NONSTD )
-#endif
-
-// Control presence of exception handling (try and auto discover):
-
-#ifndef byte_CONFIG_NO_EXCEPTIONS
-# if defined(__cpp_exceptions) || defined(__EXCEPTIONS) || defined(_CPPUNWIND)
-#  define byte_CONFIG_NO_EXCEPTIONS  0
-# else
-#  define byte_CONFIG_NO_EXCEPTIONS  1
-# endif
 #endif
 
 // C++ language version detection (C++20 is speculative):
@@ -86,7 +76,7 @@ using std::to_integer;
 // Provide compatibility with nonstd::byte:
 
 template
-<
+< 
     class IntegerType
     , class = typename std::enable_if<std::is_integral<IntegerType>::value>::type
 >
@@ -212,7 +202,7 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 # define byte_constexpr14 /*constexpr*/
 #endif
 
-#if byte_HAVE_NOEXCEPT && ! byte_CONFIG_NO_EXCEPTIONS
+#if byte_HAVE_NOEXCEPT
 # define byte_noexcept noexcept
 #else
 # define byte_noexcept /*noexcept*/

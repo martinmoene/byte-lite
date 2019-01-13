@@ -35,7 +35,6 @@ CASE( "byte configuration" "[.byte][.config]" )
     byte_PRESENT( byte_BYTE_NONSTD );
     byte_PRESENT( byte_BYTE_STD );
     byte_PRESENT( byte_CONFIG_SELECT_BYTE );
-    byte_PRESENT( byte_CONFIG_NO_EXCEPTIONS );
     byte_PRESENT( byte_CPLUSPLUS );
 }
 
