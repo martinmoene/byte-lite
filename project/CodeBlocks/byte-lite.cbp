@@ -35,6 +35,7 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../example/01-basic.cpp" />
 		<Unit filename="../../example/BUCK" />
 		<Unit filename="../../include/nonstd/byte.hpp" />
+		<Unit filename="../../script/create-vcpkg.py" />
 		<Unit filename="../../script/update-version.py" />
 		<Unit filename="../../script/upload-conan.py" />
 		<Unit filename="../../test/BUCK" />
