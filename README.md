@@ -188,7 +188,12 @@ Notes and References
 
 Appendix
 --------
-### A.1 byte lite test specification
+
+### A.1 Compile-time information
+
+The version of *byte lite* is available via tag `[.version]`. The following tags are available for information on the compiler and on the C++ standard library used: `[.compiler]`, `[.stdc++]`, `[.stdlanguage]` and `[.stdlibrary]`.
+
+### A.2 Byte lite test specification
 
 ```
 byte: Allows to construct from integral via static cast (C++17)
