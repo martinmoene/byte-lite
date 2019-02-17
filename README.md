@@ -21,7 +21,7 @@ Example usage
 -------------
 
 ```Cpp
-#include "byte.hpp"
+#include "nonstd/byte.hpp"
 
 #include <cassert>
 
@@ -40,7 +40,7 @@ int main()
 ### Compile and run
 
 ```
-prompt> g++ -std=c++11 -Wall -I../include/nonstd -o 01-basic 01-basic.cpp && 01-basic
+prompt> g++ -std=c++11 -Wall -I../include -o 01-basic 01-basic.cpp && 01-basic
 ```
 
 Or to run with [Buck](https://buckbuild.com/):
