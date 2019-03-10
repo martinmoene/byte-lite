@@ -241,7 +241,10 @@ namespace detail {
   struct byte_may_alias byte { typedef unsigned char type; type v; };
 #endif
 
-template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr byte to_byte( IntegerType v ) byte_noexcept
 {
 #if   byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
@@ -255,7 +258,10 @@ inline byte_constexpr byte to_byte( IntegerType v ) byte_noexcept
 
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
 
-template< class IntegerType = typename std::underlying_type<byte>::type  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType = typename std::underlying_type<byte>::type
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
 {
     return static_cast<IntegerType>( b );
@@ -263,7 +269,10 @@ inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
 
 #else
 
-template< class IntegerType  byte_DEFAULT_TEMPLATE_ARG(typename byte::type)  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_DEFAULT_TEMPLATE_ARG(typename byte::type)  byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
 {
     return b.v;
@@ -315,7 +324,10 @@ inline byte_constexpr bool operator>=( byte l, byte r ) byte_noexcept
 
 #endif
 
-template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr14 byte & operator<<=( byte & b, IntegerType shift ) byte_noexcept
 {
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
@@ -325,7 +337,10 @@ inline byte_constexpr14 byte & operator<<=( byte & b, IntegerType shift ) byte_n
 #endif
 }
 
-template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr14 byte & operator>>=( byte & b, IntegerType shift ) byte_noexcept
 {
 #if byte_HAVE_ENUM_CLASS_CONSTRUCTION_FROM_UNDERLYING_TYPE
@@ -335,13 +350,19 @@ inline byte_constexpr14 byte & operator>>=( byte & b, IntegerType shift ) byte_n
 #endif
 }
 
-template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr byte operator<<( byte b, IntegerType shift ) byte_noexcept
 {
     return to_byte( to_uchar( b ) << shift );
 }
 
-template< class IntegerType  byte_ENABLE_IF_INTEGRAL_T( IntegerType ) >
+template<
+    class IntegerType
+    byte_ENABLE_IF_INTEGRAL_T( IntegerType )
+>
 inline byte_constexpr byte operator>>( byte b, IntegerType shift ) byte_noexcept
 {
     return to_byte( to_uchar( b ) >> shift );
