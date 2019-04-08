@@ -118,7 +118,7 @@ inline constexpr unsigned char to_uchar( byte b ) noexcept
 # define byte_COMPILER_MSVC_VERSION  0
 #endif
 
-#define byte_COMPILER_VERSION( major, minor, patch ) ( 10 * ( 10 * major + minor ) + patch )
+#define byte_COMPILER_VERSION( major, minor, patch ) ( 10 * ( 10 * (major) + (minor) ) + (patch) )
 
 #if defined(__clang__)
 # define byte_COMPILER_CLANG_VERSION byte_COMPILER_VERSION( __clang_major__, __clang_minor__, __clang_patchlevel__ )
