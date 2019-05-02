@@ -30,6 +30,7 @@ Neil MacIntosh. P0298: A byte type definition (Revision 3). March 2017.
 		<Unit filename="../../LICENSE.txt" />
 		<Unit filename="../../README.md" />
 		<Unit filename="../../appveyor.yml" />
+		<Unit filename="../../cmake/byte-lite-config-version.cmake.in" />
 		<Unit filename="../../cmake/byte-lite-config.cmake.in" />
 		<Unit filename="../../conanfile.py" />
 		<Unit filename="../../example/01-basic.cpp" />
