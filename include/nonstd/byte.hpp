@@ -267,7 +267,7 @@ inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
     return static_cast<IntegerType>( b );
 }
 
-#else
+#elif byte_CPP11_OR_GREATER
 
 template<
     class IntegerType
@@ -276,6 +276,21 @@ template<
 inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
 {
     return b.v;
+}
+
+#else // for C++98:
+
+template<
+    class IntegerType
+>
+inline byte_constexpr IntegerType to_integer( byte b ) byte_noexcept
+{
+    return b.v;
+}
+
+inline byte_constexpr unsigned char  to_integer( byte b ) byte_noexcept
+{
+    return to_integer<unsigned char >( b );
 }
 
 #endif
