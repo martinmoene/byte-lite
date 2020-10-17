@@ -1,7 +1,7 @@
 from conans import ConanFile, CMake
 
 class ByteLiteConan(ConanFile):
-    version = "0.2.0"
+    version = "0.3.0"
     name = "byte-lite"
     description = "byte"
     license = "Boost Software License - Version 1.0. http://www.boost.org/LICENSE_1_0.txt"
