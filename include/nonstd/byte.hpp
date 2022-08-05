@@ -31,7 +31,7 @@
 # define byte_CONFIG_SELECT_BYTE  ( byte_HAVE_STD_BYTE ? byte_BYTE_STD : byte_BYTE_NONSTD )
 #endif
 
-// C++ language version detection (C++20 is speculative):
+// C++ language version detection (C++23 is speculative):
 // Note: VC14.0/1900 (VS2015) lacks too much from C++14.
 
 #ifndef   byte_CPLUSPLUS
@@ -47,7 +47,8 @@
 #define byte_CPP11_OR_GREATER_ ( byte_CPLUSPLUS >= 201103L )
 #define byte_CPP14_OR_GREATER  ( byte_CPLUSPLUS >= 201402L )
 #define byte_CPP17_OR_GREATER  ( byte_CPLUSPLUS >= 201703L )
-#define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202000L )
+#define byte_CPP20_OR_GREATER  ( byte_CPLUSPLUS >= 202002L )
+#define byte_CPP23_OR_GREATER  ( byte_CPLUSPLUS >= 202300L )
 
 // use C++17 std::byte if available and requested:
 
