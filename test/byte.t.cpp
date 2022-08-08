@@ -9,6 +9,17 @@
 
 #include "byte-main.t.hpp"
 
+#if byte_CPP11_OR_GREATER
+# include <cstdint>
+namespace std11 {
+    using std::int16_t;
+}
+#else
+namespace std11 {
+    typedef short int int16_t;
+}
+#endif
+
 // Use nonstd::byte instead of plain byte to prevent collisions with
 // other byte declarations, such as in rpcndr.h (Windows kit).
 
@@ -180,17 +191,20 @@ CASE( "byte: Allows shift-right assignment" )
 
 CASE( "byte: Allows strict aliasing" )
 {
+    // Allow for both little and big endianness:
+
     struct F {
-        static int f( int & i, nonstd::byte & r )
+        static std11::int16_t f( std11::int16_t & i, nonstd::byte & r )
         {
-           i = 7;
            r <<= 1;
            return i;
         }
     };
 
-   int i;
-   EXPECT( 14 == F::f( i, reinterpret_cast<nonstd::byte&>( i ) ) );
+   std11::int16_t i = 0x07;
+   std11::int16_t r = F::f( i, reinterpret_cast<nonstd::byte&>( i ) );
+
+   EXPECT( (r == 0x0E || 0x0E00 == r) );
 }
 
 CASE( "byte: Provides constexpr non-assignment operations (C++11)" )
