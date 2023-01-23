@@ -55,7 +55,7 @@ In a nutshell
 
 **Features and properties of byte lite** are are ease of installation (single header), freedom of dependencies other than the standard library.
 
-**A limitation of byte lite** is that you need to use function `to_byte(v)` to construct a `byte` from an intergal value `v`, when C++17's relaxation of the enum value construction rule is not available.
+**A limitation of byte lite** is that you need to use function `to_byte(v)` to construct a `byte` from an integral value `v`, when C++17's relaxation of the enum value construction rule is not available.
 
 License
 -------
@@ -105,7 +105,7 @@ Synopsis
 | &nbsp;            | >=C++11 | template< class IntegerType = *underlying-type* ><br>constexpr IntegerType **to_integer**( byte b ) | byte's value, note&nbsp;2,&nbsp;3|
 | &nbsp;            | < C++11 | template< class IntegerType ><br>constexpr IntegerType **to_integer**( byte b ) | byte's value, note&nbsp;3 |
 
-**Note 1**: the algrithms use an extra level of casting to prevent undefined behaviour, as mentioned by Thomas Köppe on mailing list isocpp-lib, subject "std::byte operations are hard to use correctly", on 16 March 2017.
+**Note 1**: the algorithms use an extra level of casting to prevent undefined behaviour, as mentioned by Thomas Köppe on mailing list isocpp-lib, subject "std::byte operations are hard to use correctly", on 16 March 2017.
 
 **Note 2**: default template parameter as suggested by Zhihao Yuan on mailing list isocpp-lib, subject "std::byte to_integer<>", on 10 March 2017.
 
